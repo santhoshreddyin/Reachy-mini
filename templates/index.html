@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ agent_name }} - Transparent AI Agent</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ agent_name }}</h1>
+            <p class="subtitle">Version {{ agent_version }} - Transparent AI Agent</p>
+            <div class="status-bar" id="statusBar">
+                <span class="status-dot"></span>
+                <span id="statusText">Ready</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Command Input Section -->
+            <section class="input-section">
+                <h2>Execute Instructions</h2>
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="instructionInput" 
+                        placeholder="Enter instruction (e.g., 'list files', 'show date') or any shell command..."
+                        autocomplete="off"
+                    >
+                    <button id="executeBtn" class="btn btn-primary">Execute</button>
+                </div>
+                <div class="help-text">
+                    <strong>Quick commands:</strong> list files, current directory, disk space, memory usage, date, time, whoami
+                </div>
+            </section>
+
+            <!-- Output Display -->
+            <section class="output-section">
+                <div class="section-header">
+                    <h2>Execution Log (Transparent)</h2>
+                    <button id="clearHistoryBtn" class="btn btn-secondary">Clear History</button>
+                </div>
+                <div id="outputContainer" class="output-container">
+                    <div class="empty-state">
+                        No commands executed yet. Enter an instruction above to get started.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action History -->
+            <section class="history-section">
+                <div class="section-header">
+                    <h2>Action History</h2>
+                    <button id="refreshHistoryBtn" class="btn btn-secondary">Refresh</button>
+                </div>
+                <div id="historyContainer" class="history-container">
+                    <div class="empty-state">No actions recorded yet.</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
