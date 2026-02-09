@@ -151,14 +151,16 @@ function displayHistory(history) {
         return;
     }
     
-    // Show most recent first
-    history.reverse().forEach((item, index) => {
+    // Show most recent first - create a copy to avoid mutating original
+    const reversedHistory = [...history].reverse();
+    reversedHistory.forEach((item, index) => {
         const historyItem = document.createElement('div');
         historyItem.className = `history-item ${item.status}`;
         
-        const resultPreview = item.result.length > 100 ? 
-            item.result.substring(0, 100) + '...' : 
-            item.result;
+        const resultText = item.result || '';
+        const resultPreview = resultText.length > 100 ? 
+            resultText.substring(0, 100) + '...' : 
+            resultText;
         
         historyItem.innerHTML = `
             <div class="history-timestamp">${formatTimestamp(item.timestamp)}</div>

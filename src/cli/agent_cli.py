@@ -56,7 +56,8 @@ class AgentCLI:
         for i, action in enumerate(history, 1):
             print(f"\n{i}. [{action['status'].upper()}] {action['timestamp']}")
             print(f"   Command: {action['command']}")
-            print(f"   Result: {action['result'][:100]}...")
+            result_preview = action['result'][:100] + ('...' if len(action['result']) > 100 else '')
+            print(f"   Result: {result_preview}")
             
         print("\n" + "=" * 60 + "\n")
         

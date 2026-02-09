@@ -38,11 +38,18 @@ class TransparentAgent:
             
         Returns:
             Dictionary with execution details
+            
+        Security Note:
+            This method uses shell=True intentionally to support complex shell commands
+            and pipes. This agent is designed for trusted users who understand they are
+            executing arbitrary shell commands. Do NOT expose this to untrusted users
+            or accept commands from external sources without proper authorization.
         """
         timestamp = datetime.datetime.now().isoformat()
         
         try:
-            # Execute the command
+            # Execute the command with shell=True to support full shell features
+            # WARNING: Only use with trusted input
             result = subprocess.run(
                 command,
                 shell=True,
