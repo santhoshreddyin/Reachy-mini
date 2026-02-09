@@ -26,6 +26,16 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Quick Start
+
+Run the quick start script:
+```bash
+chmod +x start.sh
+./start.sh
+```
+
+This will guide you through starting either the Web UI or CLI interface.
+
 ### Web UI (Recommended)
 
 Start the web server:
